@@ -8,7 +8,7 @@ An intelligent Natural Language Processing (NLP) web application that parses, ex
 
 ---
 
-## 📌 Overview
+## Overview
 
 In technical recruitment and automated talent screening, extracting technical competencies accurately and quickly is critical. **Resume Skill Analyzer** bridges raw resume documents and structured talent insights by combining linguistic preprocessing, regex normalization, and spaCy's high-performance entity matching.
 
@@ -20,21 +20,21 @@ In technical recruitment and automated talent screening, extracting technical co
 
 ---
 
-## 🎯 7 Competency Domains
+## 7 Competency Domains
 
 | Domain | Example Extracted Skills |
 |---|---|
-| **💻 Programming Languages** | Python, Java, C++, TypeScript, JavaScript, Go, SQL, Bash, Rust, Kotlin |
-| **🌐 Web Development** | React, Next.js, Node.js, FastAPI, Django, Flask, Express, GraphQL, Tailwind CSS |
-| **🗄️ Databases** | PostgreSQL, MongoDB, Redis, MySQL, SQLite, Supabase |
-| **🧠 AI / Machine Learning** | Machine Learning, Deep Learning, NLP, PyTorch, TensorFlow, Scikit-learn, Hugging Face |
-| **📊 Data Science** | Pandas, NumPy, Matplotlib, Seaborn, Power BI, Statistics |
-| **🛠️ Tools & Platforms** | Git, GitHub, Docker, VS Code, Linux, Postman, Jira, Figma |
-| **☁️ Cloud & DevOps** | AWS, Azure, GCP, Kubernetes, CI/CD, GitHub Actions, Terraform, Nginx |
+| **Programming Languages** | Python, Java, C++, TypeScript, JavaScript, Go, SQL, Bash, Rust, Kotlin |
+| **Web Development** | React, Next.js, Node.js, FastAPI, Django, Flask, Express, GraphQL, Tailwind CSS |
+| **Databases** | PostgreSQL, MongoDB, Redis, MySQL, SQLite, Supabase |
+| **AI / Machine Learning** | Machine Learning, Deep Learning, NLP, PyTorch, TensorFlow, Scikit-learn, Hugging Face |
+| **Data Science** | Pandas, NumPy, Matplotlib, Seaborn, Power BI, Statistics |
+| **Tools & Platforms** | Git, GitHub, Docker, VS Code, Linux, Postman, Jira, Figma |
+| **Cloud & DevOps** | AWS, Azure, GCP, Kubernetes, CI/CD, GitHub Actions, Terraform, Nginx |
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 
 ```text
 resume-skill-analyzer/
@@ -53,74 +53,10 @@ resume-skill-analyzer/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend & App Framework:** [Streamlit](https://streamlit.io/)
 - **NLP Engine:** [spaCy](https://spacy.io/) (`en_core_web_sm` / `PhraseMatcher`)
 - **Document Parsing:** [pdfplumber](https://github.com/jsvine/pdfplumber), [pypdf](https://github.com/py-pdf/pypdf), [python-docx](https://python-docx.readthedocs.io/)
 - **High-Res PDF Page Rendering:** [pypdfium2](https://github.com/pypdfium2-team/pypdfium2)
 - **Data Handling:** [Pandas](https://pandas.pydata.org/)
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Sumiya-dev/resume-skill-analyzer.git
-cd resume-skill-analyzer
-```
-
-### 2. Create and Activate a Virtual Environment
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Download the spaCy Model
-```bash
-python -m spacy download en_core_web_sm
-```
-*(If omitted, the app will automatically download it on first launch or fall back to spaCy's standard tokenizer).*
-
----
-
-## ▶️ Running the Application
-
-Start the Streamlit dashboard:
-```bash
-streamlit run app.py
-```
-Or execute using the included launcher scripts:
-- **Windows Command Prompt:** `run_app.bat`
-- **PowerShell:** `.\run_app.ps1`
-
-Open your web browser and navigate to:
-```
-http://localhost:8501
-```
-
----
-
-## 🧪 Testing
-
-Run the automated test suite verifying dictionary integrity, parsing engines, text sanitization, and symbol safety (`C++`, `C#`, `CI/CD`):
-
-```bash
-python -m unittest test_extractor.py
-```
-
----
-
-## 🧠 How It Works
-
-1. **Document Ingestion:** Accepts uploaded `.pdf` or `.docx` files or loads pre-built sample resumes into memory.
-2. **Text Normalization:** Strips PII (emails, phone numbers, URLs) while safeguarding punctuation-sensitive technical keywords (e.g., `C++`, `C#`, `.NET`, `Node.js`).
-3. **Phrase & Token Matching:** Utilizes `spaCy`'s `PhraseMatcher` and rule-based token boundary checks to accurately detect multi-word and single-word technologies without false positives (e.g., distinguishing the programming language `"Go"` from the everyday verb).
-4. **Taxonomy Categorization:** Maps canonical skill names into the 7 technical domains and eliminates duplicates.
-5. **Interactive UI Presentation:** Simultaneously displays the original document layout side-by-side with color-coded skill badges and live search filtering.
